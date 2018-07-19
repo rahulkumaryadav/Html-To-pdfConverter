@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="templateEngine" class="org.thymeleaf.TemplateEngine"></bean>
+    <bean id="byteArrayOutputStream" class="java.io.ByteArrayOutputStream"></bean>
+    <bean id="pdfRendererBuilder" class="com.openhtmltopdf.pdfboxout.PdfRendererBuilder"></bean>
+    <bean id="context" class="org.thymeleaf.context.Context"></bean>
+    <bean id="list" class="java.util.ArrayList"></bean>
+
+    <bean id="converter" class="com.stpl.fileconvertor.HtmlToPdf">
+        <constructor-arg index="0" ref="templateEngine"></constructor-arg>
+        <constructor-arg index="1" ref="byteArrayOutputStream"></constructor-arg>
+        <constructor-arg index="2" ref="pdfRendererBuilder"></constructor-arg>
+        <constructor-arg index="3" ref="context"></constructor-arg>
+        <constructor-arg index="4" ref="list"></constructor-arg>
+    </bean>
+</beans>
